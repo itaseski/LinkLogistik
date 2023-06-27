@@ -1,0 +1,59 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+<h1>{{ document.number }} {{ document.title }}</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">pos</th>
+            <th scope="col">Reference</th>
+            <th scope="col">Is in package</th>
+            <th scope="col">Part no.</th>
+            <th scope="col">Qty.</th>
+            <th scope="col">Replaced part no.</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Aditional information</th>
+            <th scope="col">Note</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for part in document.part_set.all %}
+        <tr>
+            <th scope="row">{{ part.pos }}</th>
+
+            <td>
+                {% if part.references %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sticky" viewBox="0 0 16 16">
+                    <path d="M2.5 1A1.5 1.5 0 0 0 1 2.5v11A1.5 1.5 0 0 0 2.5 15h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 15 8.586V2.5A1.5 1.5 0 0 0 13.5 1h-11zM2 2.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V8H9.5A1.5 1.5 0 0 0 8 9.5V14H2.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V9.5a.5.5 0 0 1 .5-.5h4.293L9 13.793z"/>
+                  </svg>
+                {% else %}
+                    &nbsp;
+                {% endif %}
+            </td>
+            
+            <td>
+                {% if part.included == True  %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16">
+                    <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2l-2.218-.887zm3.564 1.426L5.596 5 8 5.961 14.154 3.5l-2.404-.961zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923l6.5 2.6zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464L7.443.184z"/>
+                  </svg>
+                {% else %}
+                &nbsp;
+                {% endif %}
+            </td>
+           
+            <td>{{ part.part_no }}</td>
+            <td>{{ part.qty }}</td>
+            <td>{{ part.replacement }}</td>
+            <td>{{ part.designation }}</td>
+            <td>{{ part.additional_information }}</td>
+            <td>{{ part.note }}</td>
+          </tr>        
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<ul>
+    
+</ul>
