@@ -1,17 +1,18 @@
-from django.shortcuts import get_object_or_404, render
+from django.views import generic
 
 from .models import Document
 
 
-def index(request):
-    document_list = Document.objects.order_by("number")
-    context = {
-        "document_list": document_list,
-    }
-    return render(request, "spares/index.html", context)
+class IndexView(generic.ListView):
+    template_name = "spares/index.html"
+    context_object_name = "document_list"
+
+    def get_queryset(self):
+        """Return documents."""
+        return Document.objects.order_by("number")
 
 
-def detail(request, document_id):
-    document = get_object_or_404(Document, pk=document_id)
-    return render(request, "spares/detail.html", {"document": document})
+class DetailView(generic.DetailView):
+    model = Document
+    template_name = "spares/detail.html"
 
