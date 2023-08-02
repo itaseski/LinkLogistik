@@ -7,7 +7,7 @@ class PartInline(admin.StackedInline):
     extra = 3
 
 class DocumentAdmin(admin.ModelAdmin):
-    fields = ["number", "title"]
+    fields = ["number", "title", "svg"]
     list_display = ["number", "title"]
     inlines = [PartInline]
 

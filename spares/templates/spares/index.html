@@ -1,36 +1,91 @@
+{% extends 'spares/base.html' %}
 {% load static %}
-<!doctype html>
-<html lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<!-- Document Title -->
+{% block title %}<title>LL - Spares</title>{% endblock %}
 
-    <link rel="stylesheet" href="{% static 'spares/css/style.css' %}">
-</head>
 
-<body>
-    <div class="container">
-        {% if document_list %}
-            <ul>
-                {% for document in document_list %}
-                <li><a href="{% url 'spares:detail' document.id %}"">{{ document.title }}</a></li>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <p>No document are available.</p>
-        {% endif %}
+
+{% block content %}
+<div class="col-12 col-xxl-9">
+    <div class="mb-8">
+        <h2 class="mb-2">Spare parts</h2>
+        <h5 class="text-700 fw-semi-bold">
+            Here’s you can find part for your particulate vehicle
+        </h5>
     </div>
+    <div class="row align-items-center g-4">
+        <div class="col-12 col-md-auto">
+            <div class="d-flex align-items-center">
+                <span class="fa-stack" style="min-height: 46px; min-width: 46px"><span
+                        class="fa-solid fa-square fa-stack-2x text-success-300"
+                        data-fa-transform="down-4 rotate--10 left-4"></span><span
+                        class="fa-solid fa-circle fa-stack-2x stack-circle text-success-100"
+                        data-fa-transform="up-4 right-3 grow-2"></span><span
+                        class="fa-stack-1x fa-solid fa-star text-success"
+                        data-fa-transform="shrink-2 up-8 right-6"></span></span>
+                <div class="ms-3">
+                    <h4 class="mb-0">57 new orders</h4>
+                    <p class="text-800 fs--1 mb-0">Satisfied</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-auto">
+            <div class="d-flex align-items-center">
+                <span class="fa-stack" style="min-height: 46px; min-width: 46px"><span
+                        class="fa-solid fa-square fa-stack-2x text-warning-300"
+                        data-fa-transform="down-4 rotate--10 left-4"></span><span
+                        class="fa-solid fa-circle fa-stack-2x stack-circle text-warning-100"
+                        data-fa-transform="up-4 right-3 grow-2"></span><span
+                        class="fa-stack-1x fa-solid fa-pause text-warning"
+                        data-fa-transform="shrink-2 up-8 right-6"></span></span>
+                <div class="ms-3">
+                    <h4 class="mb-0">5 orders</h4>
+                    <p class="text-800 fs--1 mb-0">Not wort the price</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-auto">
+            <div class="d-flex align-items-center">
+                <span class="fa-stack" style="min-height: 46px; min-width: 46px"><span
+                        class="fa-solid fa-square fa-stack-2x text-danger-300"
+                        data-fa-transform="down-4 rotate--10 left-4"></span><span
+                        class="fa-solid fa-circle fa-stack-2x stack-circle text-danger-100"
+                        data-fa-transform="up-4 right-3 grow-2"></span><span
+                        class="fa-stack-1x fa-solid fa-xmark text-danger"
+                        data-fa-transform="shrink-2 up-8 right-6"></span></span>
+                <div class="ms-3">
+                    <h4 class="mb-0">15 products</h4>
+                    <p class="text-800 fs--1 mb-0">Not satisfied</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="bg-200 mb-6 mt-4" />
+    <div class="row flex-between-center mb-4 g-3">
+        <div class="col-auto">
+            <h3>Chassis no.</h3>
+            <p class="text-700 lh-sm mb-0">
+                In order to use the spare parts app, you must select the chassis number from the
+                dropdown list.
+            </p>
+        </div>
+        <div class="col-6 col-sm-4">
+            <select class="form-select form-select-sm mt-2" id="select-gross-revenue-month">
+                <option>2102509</option>
+                <option>2102805</option>
+                <option>2102840</option>
+            </select>
+        </div>
+    </div>
+    <!! ovde moze slika od katalogot mesto dijagramov-->
+        <div class="echart-total-sales-chart" style="min-height: 320px; width: 100%"></div>
+</div>
+{% endblock %}
+       
+ 
 
     
 
 
-    <script src=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-                    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-                    crossorigin="anonymous"></script>
-</body>
-
-</html>
+ 

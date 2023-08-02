@@ -7,7 +7,8 @@ class Document(models.Model):
     '''
     number = models.CharField(max_length=10)
     title = models.CharField(max_length=255)
-    #image = models.ImageField(upload_to='doc_images/spares/docs', null=true)
+    #image = models.ImageField(upload_to='doc_images/spares/docs', null=True)
+    svg= models.TextField("SVG", blank=True)
 
     class Meta:
         ordering = ["number"]
@@ -32,7 +33,7 @@ class Part(models.Model):
     class Meta:
         ordering = ["id"]
 
-    def __str__(self):
+    def __str__(self): 
         return self.part_no
     
     #def package(self):

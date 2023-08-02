@@ -25,12 +25,13 @@ SECRET_KEY = 'django-insecure-3%(6&)_*0vdrut9ubli%@%xvt^*i*lxk)z%2em6e@jxj1je*x8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['itaseski.pythonanywhere.com', '127.0.0.1'] # itaseski
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'chassis.apps.ChassisConfig',
     'spares.apps.SparesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -55,7 +56,7 @@ ROOT_URLCONF = 'web_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'], # itaseski
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -106,7 +107,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Skopje'
 
 USE_I18N = True
 
@@ -117,6 +118,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+#itaseski
+STATICFILES_DIRS = [BASE_DIR / 'static', ]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
