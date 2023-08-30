@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['itaseski.pythonanywhere.com', '127.0.0.1'] # itaseski
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',
     'chassis.apps.ChassisConfig',
     'spares.apps.SparesConfig',
     'django.contrib.admin',
